@@ -49,6 +49,10 @@ Algorithmically, here is the description: If a color attribute is even and we ne
 
 Decoding the message simply works in reverse. If an encoded pixel’s value is (Even, Odd, Even), then it would be decoded to green, meaning the RGB components would be set to (0, 255, 0). All of our decoded colors should be “full colors”, meaning they are made up of some combinations of only 0s and 255s. Something to note: there is no way for us to “undo” a decode operation. Once a pixel has been decoded, its original RGB values have been replaced with the decoded color RGBs.
 
+A very simple example here demonstrates the working principle:
+![description](https://github.com/EricLiuuu/Image-Steganography/blob/main/Docs/description.PNG)
+The message file describes the message that is to be encoded in an image. Its format is similar to the PPM in some ways, but since it is not actually a viewable image, there is no “magic number” in the file. The first field is the message’s width (number of columns first) and the second field is the message’s height (number of rows). Following that is a description of which color should be encoded for every “pixel” in the message. In the above example, we see the message is made up of 7s (cyan) and 1s (red). If you look at the message file, you should recognize that the message I want to encode is a cyan-colored “N” over a red background.
+
 ## Usage
 
 To start the program, we need to provide the target .ppm file that we are going to work on. An image file called "deer.ppm" is used here for example.
